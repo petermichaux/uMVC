@@ -78,17 +78,10 @@ uMVC.View.prototype.getSuperView = function() {
 uMVC.View.prototype.destroy = function() {
     if (this._model) {
         this._model.unsubscribe(this);
-        this._model = null;
-    }
-    if (this._controller) {
-        this._controller.destroy();
-        this._controller = null;
     }
     for (var i = 0, ilen = this._subViews.length; i < ilen; i++) {
         this._subViews[i].destroy();
     }
-    this._subViews = null;
-    this._superView = null;
 };
 uMVC.Controller = function() {};
 uMVC.Controller.prototype.getModel = function() {
@@ -102,11 +95,4 @@ uMVC.Controller.prototype.getView = function() {
 };
 uMVC.Controller.prototype.setView = function(view) {
     this._view = view;
-};
-uMVC.Controller.prototype.destroy = function() {
-    this._model = null;
-    if (this._view) {
-        this._view.setController(null);
-        this._view = null;
-    }
 };
