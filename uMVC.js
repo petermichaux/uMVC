@@ -27,7 +27,7 @@ uMVC.View.prototype.getModel = function() {
     return this._model;
 };
 uMVC.View.prototype.setModel = function(model) {
-    this._setModelAndController(model, this.getController());
+    this._setModelAndController(model, this._controller);
 };
 uMVC.View.prototype.getDefaultController = function() {
     return new uMVC.Controller();
