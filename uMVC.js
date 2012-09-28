@@ -77,7 +77,7 @@ uMVC.View.prototype.getSuperView = function() {
 };
 uMVC.View.prototype.destroy = function() {
     if (this._model) {
-        this._model.unsubscribe(this);
+        this._model.unobserve(this);
     }
     for (var i = 0, ilen = this._subViews.length; i < ilen; i++) {
         this._subViews[i].destroy();
